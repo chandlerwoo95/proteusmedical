@@ -1,219 +1,207 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Chandler Woo</title>
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script src="javascript/app.js"></script>
+		<meta charset="UTF-8">
+		<title>Proteus Medical</title>
 		<link rel="icon"  type="image/png" href="images/CWlogo.jpg">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="styles/universal_styles.css">
+		<link rel="stylesheet" type="text/css" href="styles/page_styles.css">
+		<script src="js/jquery-1.9.0.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){  
 
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		  ga('create', 'UA-61936226-1', 'auto');
-		  ga('send', 'pageview');
-
+		    // hide all div containers  
+		    $('#collapsible-panels div').hide();  
+		    // append click event to the a element  
+		    $('#collapsible-panels a').click(function(e) {  
+			// slide down the corresponding div if hidden, or slide up if shown  
+			$(this).parent().next('#collapsible-panels div').slideToggle('slow');  
+			// set the current item as active  
+			$(this).parent().toggleClass('active');  
+			e.preventDefault();  
+		    });  
+		}); 
 		</script>
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+		<script src="js/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+			$('#slider').carouFredSel({
+				width: '100%',
+				align: false,
+				items: 3,
+				items: {
+					width: $('#wrapper').width() * 0.10,
+					height: 500,
+					visible: 1,
+					minimum: 1
+				},
+				scroll: {
+					items: 1,
+					timeoutDuration : 6500,
+					onBefore: function(data) {
 
+						//	find current and next slide
+						var currentSlide = $('.slide.active', this),
+							nextSlide = data.items.visible,
+							_width = $('#wrapper').width();
+
+						//	resize currentslide to small version
+						currentSlide.stop().animate({
+							width: _width * 0.10
+						});		
+						currentSlide.removeClass( 'active' );
+
+						//	hide current block
+						data.items.old.add( data.items.visible ).find( '.slide-block' ).stop().fadeOut();					
+
+						//	animate clicked slide to large size
+						nextSlide.addClass( 'active' );
+						nextSlide.stop().animate({
+							width: _width * 0.7
+						});						
+					},
+					onAfter: function(data) {
+						//	show active slide block
+						data.items.visible.last().find( '.slide-block' ).stop().fadeIn();
+					}
+				},
+				onCreate: function(data){
+
+					//	clone images for better sliding and insert them dynamacly in slider
+					var newitems = $('.slide',this).clone( true ),
+						_width = $('#wrapper').width();
+
+					$(this).trigger( 'insertItem', [newitems, newitems.length, false] );
+
+					//	show images 
+					$('.slide', this).fadeIn();
+					$('.slide:first-child', this).addClass( 'active' );
+					$('.slide', this).width( _width * 0.10 );
+
+					//	enlarge first slide
+					$('.slide:first-child', this).animate({
+						width: _width * 0.7
+					});
+
+					//	show first title block and hide the rest
+					$(this).find( '.slide-block' ).hide();
+					$(this).find( '.slide.active .slide-block' ).stop().fadeIn();
+				}
+			});
+
+			//	Handle click events
+			$('#slider').children().click(function() {
+				$('#slider').trigger( 'slideTo', [this] );
+			});
+
+			//	Enable code below if you want to support browser resizing
+			$(window).resize(function(){
+
+				var slider = $('#slider'),
+					_width = $('#wrapper').width();
+
+				//	show images
+				slider.find( '.slide' ).width( _width * 0.10 );
+
+				//	enlarge first slide
+				slider.find( '.slide.active' ).width( _width * 0.7 );
+
+				//	update item width config
+				slider.trigger( 'configuration', ['items.width', _width * 0.10] );
+			});
+
+		});
+		</script>	
 	</head>
-	<body>
-		<!-- HEADER -->
-		<div class = "main-header">
-			<nav>
-				<div class = "left-nav">
-					<div id = "profile-logo"> </div>
-					<p id="name">Chandler Woo</p>
-				</div>
+	
+	
+<body>	
+<header>
+	<div id="headerContent">
+    	<div id="logo">
+        	<a href="index.html"><img src="images/ProteusLogo.png" alt="Proteus Surgical logo" width="292" height="61" /></a>
+        	<p id="tagline">Providing a streamlined endoscopic foreign body retrieval device.</p>
+      	</div>
+      	<div id="mainNavigation">
+       		<ul>
+         	<li><a href="index.html" class="nav_active">Home</a></li>
+              	<li><a href="approach.html">Our Approach</a></li>
+             	<li><a href="products.html">Products</a></li>
+             	<li><a href="team.html">Our Team</a></li>
+             	<li><a href="news.html">News</a></li>
+             	<li><a href="contact.html">Contact</a></li>
+             	<li><a href="http://www.prescientsurgical.com/prescience">Blog</a></li>
+          	</ul>
+      	</div>
+   	</div>
+</header>
 
-        		<ul class = "right-nav">
-        			<li><a class="scroll-to-about" href = "#" class="scroll-to-about">About Me</a></li>
-          			<li><a class = "scroll-to-skills" href = "#">Skills &amp Education</a></li>
-          			<li><a class = "scroll-to-portfolio" href = "#">Portfolio</a></li>
-          			<li><a class = "scroll-to-experience" href = "#">Experience</a></li>
-          			<li><a href = "mailto:chandler.w.woo@gmail.com">Contact</a></li>
-          			<li><a href = "portfolio/ChandlerWooResume(November2016).pdf">Resume</a></li>
-        		</ul>
-      		</nav>
-			<div class = "header-content">
-				<h1>I Am</h1>
-				<h2>biomedical engineer. adventure seeker. life enthusiast. </h2>
-				<button a class="scroll-to-about" href="#"> Learn More</button>
-			</div>
-		</div>
-		<!-- ABOUT ME -->
-		<div class = "section-header" id = "about">
-			<h1><span>&laquo</span>About Me<span>&raquo</span></h1>
-			<div id = "collage"> </div>
-			<div id = "paragraph">
-				<p>Hello, and welcome to my website! My name is Chandler Woo and I am a biomedical engineer from Pasadena, California. I am currently majoring in Biomedical Engineering at the University of Rochester in Upstate New York. Creating new experiences is how I have lived my life. You may find me backpacking in the backcountry of New Mexico, taking a polar plunge in the icy waters of Alaska, or even just exploring the local areas of New York. I have found a deep-rooted passion for medical devices, where I hope to enhance the lives of others through the wonders of engineering and science. Feel free to browse through the website and be sure to contact me if you have any further questions! </p>
-			</div>
-
-
-		</div>
-		<!-- SKILLS AND EDUCATION -->
-		<div class = "section-header" id = "skills">
-			<h1><span>&laquo</span>Skills &amp Education<span>&raquo</span></h1>
-			<div class = "skills-and-education" id="skills-and-education">
-				<div class = "left">
-					<p class="section-title"> Skills</p>
-					<p id = "major"> <span>|| Software:</span> MATLAB | FEBio | Abaqus | Amira | OrCAD </p>
-					<p id = "major"><span>|| Web Design:</span> HTML | CSS | JavaScript | jQuery </p>
-					<p id = "major"><span>|| Other:</span> Microsoft Excel | Fluoview | ImageJ </p>
+<!-- BEGIN HOME PAGE CONTENT -->
+<div id="content">
+			<div id="wrapper">
+			<!-- BEGIN SLIDE SHOW -->
+			<div id="slider">
+				<div class="slide" style="background-image: url(images/dog-banner.jpg);">
+					<div class="slide-block">
+						<p>SSI adds $3-10 billion to the cost of healthcare, with direct medical costs ranging from $11,087 to $34,670 per infection.<sup>1, 2, 3</sup></p>
+					</div>
 				</div>
-				<div class = "right">
-					<p class="section-title"> University of Rochester <span>|| Class of 2017</span> </p>
-					<p id = "major"> BS in Biomedical Engineering </p>
-					<p id = "major"> Concentration in Biomechanics with emphasis in Medical Device design</p>
-					<p id = "major"> Dean's Scholarship and Northrop Grumman Engineering Scholars Recipient </p>
-				</div>
-			</div>
-		</div>
-		<!-- PORTFOLIO-->
 		
-		<div class = "section-header" id = "portfolio">
-			<div class = "portfolio">
-				<h1><span>&laquo</span>Portfolio<span>&raquo</span></h1>
-				
-				<!-- Veterinary Endoscopy -->
-				<a href = "veterinary.html" class = "project-link">
-					<div class = "project">
-						<img class = "project-logo" src="portfolio/animal.jpg" >
-						<h2> Veterinary Endoscopy </h2>
-						<h3> Creating Next Generation Veterinary Care </h3>
-						<h3> A universal endoscopic foreign body retrieval device to improve clinician practice and veterinary health</h3>
+				<div class="slide" style="background-image: url(images/dog-banner.jpg);">
+					<div class="slide-block">
+						<p>2-5% of patients undergoing inpatient surgery will develop SSI. In high-risk abdominal surgeries such as colorectal surgery, 18-26% of patients will develop SSI.<sup>4, 5, 6</sup></p>
 					</div>
-				</a>
-				
-				<!-- BMES -->
-				<a href = "bmes.html" class = "project-link">
-					<div class = "project">
-						<img class = "project-logo" src="portfolio/bmes.png">
-						<h2> BMES Research Poster </h2>
-						<h3> The Effects of Preconditioning on the Material Properties of Murine Articular Cartilage </h3>
-						<h3> Designed a poster from research conducted in Buckley Lab and presented at annual Biomedical Engineering Society Conference </h3>
-					</div>
-				</a>
-				
-				<!-- CHANDLERWOO.COM -->
-				<a href = "#" class = "project-link">
-					<div class = "project">
-						<img class = "project-logo" src="images/CWlogo.jpg">
-						<h2> ChandlerWoo.com </h2>
-						<h3> Built and designed by yours truly </h3>
-						<h3> You're scrolling through it right now! </h3>
-						<h3> Built With: HTML | CSS | jQuery </h3>
-					</div>
-				</a>
-				
-				<!-- Quantification of Shear Strain Parameters -->
-				<a href = "stats.html" class = "project-link">
-					<div class = "project">
-						<img class = "project-logo" src="portfolio/stats-icon.png">
-						<h2> Cartilage Analysis </h2>
-						<h3> Data Quantification with Statistical Accuracy</h3>
-						<h3> Quantified shear strain parameters of articular cartilage through extensive image analysis</h3>
-						<h3> Built With: MATLAB | ImageJ </h3>
-					</div>
-				</a>
-				
-				<!-- Raptor Artificial Touch -->
-				<a href = "raptor.html" class = "project-link">
-					<div class = "project">
-						<img class = "project-logo" src="portfolio/raptor-icon.png">
-						<h2> Artificial Touch </h2>
-						<h3> Creating Feeling at your Fingertips</h3>
-						<h3> A circuit-based design that delivers the sensation of touch for a Raptor 3D printed hand </h3>
-						<h3> Built With: OrCAD | Circuit Components </h3>
-					</div>
-				</a>
-				
-				<!-- MATLAB Hearing Test -->
-				<a href = "hearing.html" class = "project-link">
-					<div class = "project">
-						<img class = "project-logo" src="portfolio/hearing-icon.png">
-						<h2> Child Hearing Test </h2>
-						<h3> Making Hearing Fun Again </h3>
-						<h3> A simple yet engaging test to determine sensory abilities of children </h3>
-						<h3> Built With: MATLAB </h3>
-					</div>
-				</a>
-				
-		</div>
-		<div class = "section-header" id = "experience">
-			<div class = "experience">
-				<h1><span>&laquo</span>Experience<span>&raquo</span></h1>
-
-				<div class = "job">
-					<img class = "job-logo" src="jobs/hajim2.jpg">
-					<p class = "company"> Buckley Lab </p>
-					<p class = "job-title"> Undergraduate Research Assistant <span>|| Sept 2015 - Present </span></p>
-					<p class = "job-description">Analyzes mechanical properties and effects of preconditioning on articular cartilage</p>
-					<p class = "job-description">Uses confocal microscopy, MATLAB, and FEBio to devise and execute experiments on murine femoral condyles</p>
-					<p class = "job-description">Co-authored paper on findings - currently under review in Biomechanics and Modeling in Mechanobiology (BMMB)</p>
 				</div>
-
-				<div class = "job">
-					<img class = "job-logo" src="jobs/rochester2.png">
-					<p class = "company"> University of Rochester </p>
-					<p class = "job-title"> Teaching Assistant <span>|| Fall 2014 - Present </span></p>
-					<p class = "job-description">Worked with students in lab sessions, graded assignments, and worked directly with professors </p>
-					<p class = "job-description">Introduction to Biomedical Engineering - Fall 2014, Fall 2015, Fall 2016</p>
-					<p class = "job-description">Human Anatomy - Spring 2016, Spring 2017</p>
-					<p class = "job-description">BME Signals, Systems, and Imaging - Fall 2016</p>
+		
+				<div class="slide" style="background-image: url(images/dog-banner.jpg);">
+					<div class="slide-block">
+						<p>SSI patients spend an additional 7-10 days in the hospital, and are 5 times more likely to be readmitted to the hospital.<sup>2, 5, 7</sup></p>
+					</div>
 				</div>
-
-				<div class = "job">
-					<img class = "job-logo" src="jobs/idealab2.png">
-					<p class = "company"> Idealab </p>
-					<p class = "job-title"> Summer Engineering Intern <span>|| Jun - Aug 2014, Jun - Aug 2015 </span></p>
-					<p class = "job-description">Member of Engineering Team at eSolar and Idealab </p>
-					<p class = "job-description">Used design of experiments knowledge to optimize and prototype improved heliostats for concentrated solar power</p>
-					<p class = "job-description">Constructed design parameters of a heat retentive system for effective water desalination</p>
+                
+             	<div class="slide" style="background-image: url(images/dog-banner.jpg);">
+					<div class="slide-block">
+						<p>Reducing SSI is a national priority, evidenced by the emergence of public reporting requirements and reimbursement penalties.</p>
+					</div>
 				</div>
-
-				<div class = "job">
-					<img class = "job-logo" src="jobs/urmc.jpg">
-					<p class = "company"> Crane Lab </p>
-					<p class = "job-title"> Undergraduate Research Assistant <span>|| Sept 2014 - May 2015 </span></p>
-					<p class = "job-description">Conducted human trial experiments to understand human motion perception and spatial orientation</p>
-					<p class = "job-description">Updated MATLAB code to improve functional display and integration with more modern software packages</p>
-				</div>
-				
-				<div class = "job">
-					<img class = "job-logo" src="jobs/caltech.png">
-					<p class = "company"> Caltech Entrepreneur's Forum </p>
-					<p class = "job-title"> Assistant Program Manager <span>|| Sept 2012 - August 2013 </span></p>
-					<p class = "job-description">Organized and managed events focusing on entrepreneurship and engineering through Caltech</p>
 			</div>
+			<!-- END SLIDE SHOW -->
 		</div>
 
-
-		<footer >
-			<div id = "footer-container">
-
-		        	<div id = "copyright">
-		        		<p>Copyright &copy; Chandler Woo</p>
-		        		<p>Last Updated Nov 2016</p>
-		        	</div>
-
-		        	<div id = "social-buttons">
-		        		<a href="https://www.linkedin.com/in/chandler-woo"><img src="social-icons/64-linkedin.png" alt = "LinkedIn"></a>
-		        		<a href="https://www.instagram.com/the_chanmann"><img src="social-icons/64-instagram.png" alt = "Instagram"></a>
-
-		        	</div>
-
-		        	<div id = "contact-info">
-		        		<p>Email: <a href="mailto:chandler.w.woo@gmail.com">chandler.w.woo@gmail.com</a></p>
-		        		<p>Phone: 1-626-848-6226 </p>
-		        	</div>
-
-	        </div>
-	    </footer>
-
-
-
-	</body>
+    <div id="homeContent">
+		<div id="homeContentText">
+       		<h1>Proteus Medical&mdash;fully dedicated to streamline<br>the endoscopic foreign body retrieval process.</h1>
+          	<div id="collapsible-panels"> 
+          		<h4><a href="#">Sources</a></h4>
+         	</div>
+       	</div>
+      	<a href="approach.html"><div id="learnMore"></div></a>
+   	</div>
+   	<div class="clear"></div>
+</div>
+<!-- END HOME PAGE CONTENT -->
+<footer>
+	<div id="footerContent">
+    
+    	<div class="footerBucket">
+       		<img class="footerIcon" src="images/map_marker.png" alt="map marker icon" height="39" width="24" />
+          	<p>275 Hutchison Rd<br>Rochester, NY 14620</p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/telephone_icon.png" alt="telephone icon" height="39" width="27" />
+          	<p><strong>Call</strong><br>T: (626) 848-6226</p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/envelope_icon.png" alt="envelope icon" height="33" width="46" />
+          	<p><strong>Contact</strong><br><a href="mailto:info@proteus-medical.com">info@proteus-medical.com</a></p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/copyright_icon.png" alt="copyright icon" height="24" width="27" />
+          	<p id="copyright">2017 Proteus Medical</p>
+      	</div>
+    </div>
+</footer>
+</body>
 </html>
