@@ -1,0 +1,119 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Products- Prescient Surgical</title>
+<link rel="canonical" href="http://www.prescientsurgical.com">
+<link rel="icon" type="image/x-icon" href="http://www.prescientsurgical.com/favicon.ico" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="styles/universal_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/page_styles.css">
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+
+
+
+	// hide all div containers
+
+	$('#collapsible-panels div').hide();
+
+	// append click event to the a element
+
+	$('#collapsible-panels a').click(function(e) {
+
+		// slide down the corresponding div if hidden, or slide up if shown
+
+		$(this).parent().next('#collapsible-panels div').slideToggle('slow');
+
+		// set the current item as active
+
+		$(this).parent().toggleClass('active');
+
+		e.preventDefault();
+
+	});
+
+});
+</script>
+</head>
+
+<body>
+<header>
+	<div id="headerContent">
+    	<div id="logo">
+        	<a href="index.html"><img src="images/PS_logo.png" alt="Prescient Surgical logo" width="292" height="61" /></a>
+      	  <p id="tagline">Dedicated to reducing the risk of surgical site infections (SSI).</p>
+      </div>
+      	<div id="mainNavigation">
+       		<ul>
+          		<li><a href="index.html">Home</a></li>
+              	<li><a href="approach.html">Our Approach</a></li>
+              	<li><a href="products.html" class="nav_active">Products</a></li>
+             	<li><a href="team.html">Our Team</a></li>
+             	<li><a href="news.html">News</a></li>
+             	<li><a href="contact.html">Contact</a></li>
+             	             	<li><a href="http://www.prescientsurgical.com/prescience">Blog</a></li>
+          	</ul>
+      	</div>
+   	</div>
+</header>
+
+<!-- BEGIN PAGE CONTENT -->
+<div id="content">
+    <div class="mainContent">
+       	<h2>Products</h2>
+		    <ul id="approachSubNav">
+          <li><a href="products.html" class="subnav_active">CleanCision<sup>TM</sup></a></li>
+    		  <li><a href="howitworks.html">How it Works</a></li>
+    		  <li><a href="CleanCision-Brochure.pdf">Product Brochure</a></li>
+    
+		    </ul>
+        
+        <div id="pageContent">
+       		<img class="pageContent_image" src="images/fg.jpg" alt="surgery room" width="423" height="320"/>
+          <div id="summaryDescription">
+            <h3>CleanCision<sup>TM</sup></h3>
+            <p>The CleanCision Wound Retraction and Protection System<sup>TM</sup> is an investigational device combining the features of self-retaining retraction, barrier wound protection, and continuous wound edge irrigation during abdominal surgical procedures. The device provides access to the abdominal cavity, and wound edge irrigation is provided by a double-walled barrier sheath that integrates fluid delivery and removal functionality.</p><br><br><br><br><br><br>
+          </div>
+            
+          <!-- BEGIN CITATIONS COLLAPSIBLE PANEL-->
+          <div id="pageContent">  
+       			<h4><a>The CleanCision Wound Retraction and Protection System<sup>TM</sup> is indicated for use by a surgeon during abdominal surgery to retract the surgical incision,
+provide access to the abdominal cavity, and irrigate the surgical wound edge. The device may
+aid in the prevention of wound edge contamination. This device is intended to deliver a sterile
+irrigant solution and serve as a conduit for fluid removal from the surgical wound edge.</a></h4>  
+     				<div>
+             
+            </div>   
+          </div> 
+          <!-- END CITATIONS COLLAPSIBLE PANEL -->
+     	</div>
+      <div class="contentclear"></div>
+   	</div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<footer>
+	<div id="footerContent">
+    	<div class="footerBucket">
+       		<img class="footerIcon" src="images/map_marker.png" alt="map marker icon" height="39" width="24" />
+          <p>1585 Industrial Rd.<br>San Carlos, CA 94070</p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/telephone_icon.png" alt="telephone icon" height="39" width="27" />
+          <p><strong>Call</strong><br>T: (650) 999-0263</p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/envelope_icon.png" alt="envelope icon" height="33" width="46" />
+          <p><strong>Contact</strong><br><a href="mailto:info@prescientsurgical.com">info@prescientsurgical.com</a></p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/copyright_icon.png" alt="copyright icon" height="24" width="27" />
+          <p id="copyright">2016 Prescient Surgical</p>
+      	</div>
+    </div>
+</footer>
+</body>
+</html>
