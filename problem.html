@@ -1,0 +1,120 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Problem - Prescient Surgical</title>
+<link rel="canonical" href="http://www.prescientsurgical.com">
+<link rel="icon" type="image/x-icon" href="http://www.prescientsurgical.com/favicon.ico" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="styles/universal_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/page_styles.css">
+<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+	// hide all div containers
+
+	$('#collapsible-panels div').hide();
+
+	// append click event to the a element
+
+	$('#collapsible-panels a').click(function(e) {
+
+		// slide down the corresponding div if hidden, or slide up if shown
+
+		$(this).parent().next('#collapsible-panels div').slideToggle('slow');
+
+		// set the current item as active
+
+		$(this).parent().toggleClass('active');
+
+		e.preventDefault();
+
+	});
+
+});
+</script>
+</head>
+
+<body>
+<header>
+	<div id="headerContent">
+    	<div id="logo">
+        	<a href="index.html"><img src="images/PS_logo.png" alt="Prescient Surgical logo" width="292" height="61" /></a>
+      	  <p id="tagline">Dedicated to reducing the risk of surgical site infections (SSI).</p>
+        </div>
+      	<div id="mainNavigation">
+       		<ul>
+          		<li><a href="index.html">Home</a></li>
+              	<li><a href="approach.html" class="nav_active">Our Approach</a></li>
+              	<li><a href="products.html">Products</a></li>
+             	<li><a href="team.html">Our Team</a></li>
+             	<li><a href="news.html">News</a></li>
+             	<li><a href="contact.html">Contact</a></li>
+             	             	<li><a href="http://www.prescientsurgical.com/prescience">Blog</a></li>
+          	</ul>
+      	</div>
+   	</div>
+</header>
+
+<!-- BEGIN PAGE CONTENT -->
+<div id="content">
+  <div class="mainContent">
+    <h2>Our Approach</h2>
+		<ul id="approachSubNav">
+			<li><a href="approach.html">Our Mission</a></li>
+    	<li><a href="problem.html" class="subnav_active">The Problem</a></li>
+    	<li><a href="technology.html">Our Technology</a></li>
+		</ul>
+        
+    <div id="pageContent">
+      <div id="problemDescription">
+        <h3>The Problem</h3>
+        <img src="images/problem.jpg" alt="SSI cycle" width="452" height="194" />  	
+        <p id="problemDesc01">Surgical site infection (SSI) is a major healthcare burden. The consequences are both morbid and costly, with pain, advanced wound care treatments, lengthened hospital stay, and increased risk of re-admission, re-operation, and even death. On a per-case basis, SSI costs an average of $20,842 to treat, and increases hospital stay by 9.7 days.<sup>8</sup> Annually, over 900,000 additional days of hospital care are expended treating SSI, limiting providers’ capacity to admit and treat new patients and generate revenue. These forces create a strong incentive for providers and payers to reduce infection rates. These incentives are further intensified by the structural changes in healthcare associated with the Affordable Care Act (ACA), mandating public reporting of infection rates and implementing reimbursement penalties for providers with high infection rates.</p>
+        <p id="problemDesc02">While 2-5% of patients undergoing inpatient surgery will develop SSI, <strong>Prescient Surgical is initially focused on high-risk abdominal GI surgeries</strong> such as colorectal surgery, where 18-26% of patients will develop SSI.</p>
+      </div>
+       	
+     	<!-- BEGIN CITATIONS COLLAPSIBLE DIV -->
+      <div id="collapsible-panels">  
+   			<h2><a href="#">Sources</a></h2>  
+   			<div>
+          <p><sup>1</sup>Scott, R. Douglas. The Direct Medical Costs of Healthcare-Associated Infections in U.S. Hospitals and the Benefits of Prevention. March 2009. http://www.cdc.gov/ncidod/dhqp/pdf/Scott_CostPaper.pdf.</p>
+					<p><sup>2</sup>Wick EC, Hirose K, Shore AD, Clark JM, Gearhart SL, Efron J, Makary MA. Surgical site infections and cost in obese patients undergoing colorectal surgery. Arch Surg. 2011 Sep;146(9):1068-72.</p>
+					<p><sup>3</sup>Mahmoud NN, Turpin RS, Yang G, Saunders WB. Impact of surgical site infections on length of stay and costs in selected colorectal procedures. Surg Infect (Larchmt). 2009 Dec;10(6):539-44.</p>
+					<p><sup>4</sup>Anderson DJ, et al. Strategies to Prevent Surgical Site Infections in Acute Care Hospitals. Infect Control Hosp Epidemiol 2008;29:S51-S61 for individual references.</p>
+					<p><sup>5</sup>Wick EC, Shore AD, Hirose K, Ibrahim AM, Gearhart SL, Efron J, Weiner JP, Makary MA. Readmission rates and cost following colorectal surgery. Dis Colon Rectum. 2011 Dec;54(12):1475-9.</p>
+					<p><sup>6</sup>Smith RL, Bohl JK, McElearney ST, et al. Wound infection after elective colorectal resection. Ann Surg 2004;239:599–605.</p>
+					<p><sup>7</sup>Kirkland KB, Brigss JP, Trivette SL, Wilkinson WE, Sexton DJ. The Impact of Surgical-Site Infections in the 1990s: Attributable Mortality, Excess Length of Hospitalization, and Extra Costs. Infect Control Hosp Epidemiol 1999; 20:725-730.</p>
+					<p><sup>8</sup>de Lissovy G., Fraeman, SM, Hutchins V., Murphy D., Song D., Vaughm BB. Surgical site infection: Incidence and impact on hospital utilization and treatment costs. Am J Infect Control. 2009 Jun;37(5):387-97.</p>
+        </div>    
+		  </div> 
+      <!-- END CITATIONS COLLAPSIBLE DIV -->
+    </div>
+    <div class="contentclear"></div>
+  </div>
+</div>
+<!-- END PAGE CONTENT -->
+
+<footer>
+	<div id="footerContent">
+    	<div class="footerBucket">
+       		<img class="footerIcon" src="images/map_marker.png" alt="map marker icon" height="39" width="24" />
+          <p>1585 Industrial Rd.<br>San Carlos, CA 94070</p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/telephone_icon.png" alt="telephone icon" height="39" width="27" />
+          <p><strong>Call</strong><br>T: (650) 999-0263</p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/envelope_icon.png" alt="envelope icon" height="33" width="46" />
+          <p><strong>Contact</strong><br><a href="mailto:info@prescientsurgical.com">info@prescientsurgical.com</a></p>
+      	</div>
+      	<div class="footerBucket">
+       		<img class="footerIcon" src="images/copyright_icon.png" alt="copyright icon" height="24" width="27" />
+          <p id="copyright">2016 Prescient Surgical</p>
+      	</div>
+    </div>
+</footer>
+</body>
+</html>
